@@ -11,7 +11,7 @@ import (
 func (api *API) configureRouterField() {
 	router := gin.Default()
 	router.POST("/user/auth/:GUID", api.Auth)
-	router.GET("/user/refresh", api.RefreshTokens)
+	router.POST("/user/refresh", api.RefreshTokens)
 
 	api.router = router
 }

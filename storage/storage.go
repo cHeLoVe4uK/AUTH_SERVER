@@ -24,7 +24,7 @@ func New(config *config.StorageConfig) *Storage {
 
 // Метод, открывающий соединение между нашим приложением и БД
 func (storage *Storage) Open() error {
-	db, err := sql.Open(config.NewStorageConfig().DriverName, config.NewStorageConfig().DataBaseURI)
+	db, err := sql.Open(storage.config.DriverName, storage.config.DataBaseURI)
 	if err != nil {
 		return err
 	}

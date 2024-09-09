@@ -24,8 +24,8 @@ func NewAPI(config *config.ConfigAPI) *API {
 	}
 }
 
-// Метод, конфигурирующий и запускающий сервер
-func (api *API) Start() error {
+// Метод, конфигурирующий сервер
+func (api *API) ConfigureAPI() error {
 	err := api.configureManagerField()
 	if err != nil {
 		return err
@@ -41,12 +41,15 @@ func (api *API) Start() error {
 	}
 	log.Println("Storage succsessfully configured")
 
-	log.Printf("Starting on port: %v", api.config.BindAddr)
-
-	err = api.router.Run(":" + api.config.BindAddr)
-	if err != nil {
-		log.Fatalf("While server is working: %v", err)
-	}
-
 	return nil
+}
+
+// Метод, запускающий сервер
+func (api *API) Start() {
+	log.Printf("Starting on port: %s", api.config.BindAddr)
+
+	err := api.router.Run(":" + api.config.BindAddr)
+	if err != nil {
+		log.Fatalf("While server is working: %s", err)
+	}
 }

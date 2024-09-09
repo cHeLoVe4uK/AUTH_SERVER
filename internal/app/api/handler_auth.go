@@ -73,7 +73,7 @@ func (api *API) Auth(ctx *gin.Context) {
 	if err != nil {
 		log.Println("Trouble while creating user in DB: ", err)
 		message := responseMessage{
-			Message: "Sorry, trouble with server. Try later",
+			Message: "Sorry, trouble with access to DB. Try later",
 		}
 		ctx.JSON(http.StatusInternalServerError, message)
 		return

@@ -1,0 +1,8 @@
+CREATE TABLE users(
+	USER_ID         text NOT NULL,
+	TOKEN_CONNECT   text NOT NULL,
+	REFRESH_TOKEN   text NOT NULL,
+	CREATED_AT      text NOT NULL,
+	EXPIRATION_TIME text NOT NULL,
+	USED_AT text DEFAULT ''
+);

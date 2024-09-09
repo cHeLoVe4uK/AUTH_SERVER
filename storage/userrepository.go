@@ -14,8 +14,9 @@ type UserRepository struct {
 
 // Метод для добавления пользователя в БД
 func (u *UserRepository) CreateUser(user *models.User) (*models.User, error) {
-	query := fmt.Sprintf("INSERT INTO %s VALUES ($1, $2, $3, $4, $5, $6)", u.storage.config.UserTable)
-	_, err := u.storage.db.Exec(query, user.USER_ID, user.TOKEN_CONNECT, user.REFRESH_TOKEN, user.CREATED_AT, user.EXPIRATION_TIME, user, user.USED_AT)
+	query := fmt.Sprintf("INSERT INTO %s (USER_ID, TOKEN_CONNECT, REFRESH_TOKEN, CREATED_AT, EXPIRATION_TIME, USED_AT) VALUES ($1, $2, $3, $4, $5, $6)", u.storage.config.UserTable)
+	fmt.Println(query)
+	_, err := u.storage.db.Exec(query, user.USER_ID, user.TOKEN_CONNECT, user.REFRESH_TOKEN, user.CREATED_AT, user.EXPIRATION_TIME, user.USED_AT)
 	if err != nil {
 		log.Println("An error occurred when calling the method CreateUser")
 		return nil, err

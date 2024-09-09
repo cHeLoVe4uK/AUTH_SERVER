@@ -13,7 +13,7 @@ type Manager struct {
 // Конструктор, возвращающий экземпляр Manager
 func NewManager(config *config.ManagerConfig) (*Manager, error) {
 	if config.SigningKey == "" {
-		return nil, errors.New("empty signingKey")
+		return nil, errors.New("empty SigningKey")
 	}
 	return &Manager{SigningKey: config.SigningKey}, nil
 }

@@ -16,8 +16,8 @@ type User struct {
 
 // Модель для работы с полезной нагрузкой в токенах
 type UserClaim struct {
-	USER_ID string // guid пользователя
-	IP      string // IP пользователя
-	CON     string // рандоманый uuid, который будет использоваться для создания связи между 2 токенами
-	jwt.RegisteredClaims // стандартные claims для токенов
+	USER_ID              string // guid пользователя
+	IP                   string // IP пользователя
+	CON                  string // рандоманый uuid, который будет использоваться для создания связи между 2 токенами
+	jwt.RegisteredClaims        // стандартные claims для токенов
 }
